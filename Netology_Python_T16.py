@@ -55,9 +55,15 @@ def main():
             public_friends = \
                 findcommonfriends(TOKEN, VERSION, user_id, friends)
             for friend in public_friends:
-                print('Общие друзья ID {} ({}) и ID {} ({}):'.
-                      format(user_id, url_users_vk + str(user_id),
-                             friend['id'], url_users_vk + str(friend['id'])))
+                if choose == '1':
+                    print('Общие друзья ID {} ({}) и ID {} ({}):'.
+                          format(user_id, url_users_vk + str(user_id),
+                                 friend['id'], url_users_vk
+                                 + str(friend['id'])))
+                elif choose == '2':
+                    print('Общие друзья ID {} ({}) среди друзей друзей:'.
+                          format(user_id, url_users_vk + str(user_id)))
+
                 for common_friend in friend['common_friends']:
                     print('ID - {} {}'.
                           format(common_friend,
